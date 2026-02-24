@@ -1,0 +1,43 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'LICENSE'
+  pull_request:
+    branches: [main]
+
+env:
+  VCPKG_DEFAULT_TRIPLET: x64-windows-static
+
+jobs:
+  build:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup vcpkg
+        uses: lukka/run-vcpkg@v11
+        with:
+          vcpkgGitCommitId: a7b6122f6b6504d16d96117336a0562693579933
+
+      - name: Configure CMake
+        uses: lukka/run-cmake@v10
+        with:
+          configurePreset: release
+
+      - name: Build
+        uses: lukka/run-cmake@v10
+        with:
+          buildPreset: release
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: SkyrimLoadAccelerator
+          path: |
+            build/release/Release/*.dll
+            dist/Data/SKSE/Plugins/*.ini

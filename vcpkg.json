@@ -1,0 +1,16 @@
+{
+    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg-tool/main/docs/vcpkg.schema.json",
+    "name": "skyrim-load-accelerator",
+    "version-semver": "1.0.0",
+    "description": "SKSE plugin to accelerate Skyrim loading times",
+    "license": "MIT",
+    "dependencies": [
+        "commonlibsse-ng",
+        "libdeflate",
+        "lz4",
+        "mimalloc",
+        "spdlog",
+        "simpleini",
+        "tbb"
+    ]
+}
