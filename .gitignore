@@ -1,0 +1,21 @@
+# Build
+build/
+out/
+
+# IDE
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+
+# vcpkg installed packages
+vcpkg_installed/
+
+# OS
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# OMC state
+.omc/
